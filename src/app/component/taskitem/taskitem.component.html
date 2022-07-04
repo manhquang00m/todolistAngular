@@ -1,0 +1,89 @@
+<h2>Task ToDo</h2>
+<div *ngFor="let task of taskItem; let i = index">
+  <div class="row" *ngIf="task.check === false">
+    <div class="col-6">
+      <p class="d-flex">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >pending</mat-icon
+        >
+        <span>{{ task.nameTask }}</span>
+      </p>
+    </div>
+    <div class="col-6">
+      <div class="mt-2 row">
+        <div class="col-4">
+          <button mat-raised-button color="" (click)="idEdit(i)">
+            Edit
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >edit</mat-icon
+            >
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn-add"
+            mat-raised-button
+            color="warn"
+            (click)="idDelete(i)"
+          >
+            Delete
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >delete</mat-icon
+            >
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn-add"
+            mat-raised-button
+            color="accent"
+            (click)="idDone(i)"
+          >
+            Done
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >done</mat-icon
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Task Done</h2>
+<div *ngFor="let task of taskItem; let i = index">
+  <div class="row" *ngIf="task.check === true">
+    <div class="col-6">
+      <p class="d-flex">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >task_alt</mat-icon
+        >{{ task.nameTask }}
+      </p>
+    </div>
+    <div class="col-6">
+      <div class="mt-2 row">
+        <div class="col-4">
+          <button mat-raised-button color="red" (click)="idUndo(i)">
+            Undo
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >undo</mat-icon
+            >
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn-add"
+            mat-raised-button
+            color="warn"
+            (click)="idDelete(i)"
+          >
+            Delete
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >delete</mat-icon
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

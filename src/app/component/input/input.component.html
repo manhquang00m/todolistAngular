@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-6">
+    <mat-form-field class="w-100 example-full-width" appearance="fill">
+      <mat-label>Task Name</mat-label>
+      <input
+        matInput
+        placeholder="Enter your taskname..."
+        [(ngModel)]="input"
+        [value]="input"
+      />
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <div class="row mt-2">
+      <div class="col-4">
+        <button
+          class="btn-add"
+          mat-raised-button
+          color="primary"
+          (click)="onAdd()"
+        >
+          Add
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >add</mat-icon
+          >
+        </button>
+      </div>
+      <div class="col-4">
+        <button mat-raised-button color="primary" (click)="onUpdate()">
+          Update
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >update</mat-icon
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

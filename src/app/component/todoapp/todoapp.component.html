@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h1 class="text-center mt-5">TODOLIST</h1>
+    <app-input
+      [input]="input"
+      (sendInput)="addTask($event)"
+      (updateInput)="updateTask($event)"
+    ></app-input>
+    <app-taskitem
+      [taskItem]="taskItem"
+      (deleteId)="deleteTask($event)"
+      (editId)="editTask($event)"
+      (undoId)="undoTask($event)"
+      (doneId)="doneTask($event)"
+    ></app-taskitem>
+  </div>
+</div>
