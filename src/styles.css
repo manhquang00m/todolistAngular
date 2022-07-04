@@ -60,3 +60,10 @@ body {
   color: rgb(32, 40, 109);
   font-weight: bold;
 }
+
+table {
+  width: 100%;
+}
+.mat-table {
+  background: #ffe0e0;
+}

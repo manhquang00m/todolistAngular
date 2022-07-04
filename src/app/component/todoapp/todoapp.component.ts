@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { StudentServiceService } from 'src/app/services/student-service.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { TASK } from './mock-task';
 
@@ -9,18 +10,15 @@ import { TASK } from './mock-task';
   styleUrls: ['./todoapp.component.css'],
 })
 export class TodoappComponent implements OnInit {
-  // taskItem: { nameTask: string; check: boolean }[] = [
-  //   { nameTask: 'rua bat', check: true },
-  //   { nameTask: 'quet nha', check: false },
-  //   { nameTask: 'di lam', check: false },
-  //   { nameTask: 'abc', check: true },
-  // ];
-
   taskItem = TASK;
   input = '';
   idTemp = 0;
-
-  constructor(public dialog: MatDialog) {}
+  displayedColumns: string[] = ['id', 'name', 'email', 'edit'];
+  listStudent = this.StudentService.getStudent();
+  constructor(
+    public dialog: MatDialog,
+    private StudentService: StudentServiceService
+  ) {}
 
   ngOnInit(): void {}
 

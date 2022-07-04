@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 import {
   MatDialogModule,
   MatDialogRef,
@@ -20,7 +21,8 @@ import { TodoappComponent } from './component/todoapp/todoapp.component';
 import { InputComponent } from './component/input/input.component';
 import { TaskitemComponent } from './component/taskitem/taskitem.component';
 import { DialogComponent } from './component/dialog/dialog.component';
-
+import { StudentCreateComponent } from './component/student-create/student-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { DialogComponent } from './component/dialog/dialog.component';
     InputComponent,
     TaskitemComponent,
     DialogComponent,
+    StudentCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,12 @@ import { DialogComponent } from './component/dialog/dialog.component';
     MatIconModule,
     MatDialogModule,
     MatGridListModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: '/todolist', pathMatch: 'full' },
+      { path: 'createStudent/:id', component: StudentCreateComponent },
+      { path: 'todolist', component: TodoappComponent },
+    ]),
+    ReactiveFormsModule,
   ],
   providers: [
     {

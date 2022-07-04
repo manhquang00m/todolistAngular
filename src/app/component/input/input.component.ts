@@ -6,11 +6,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./input.component.css'],
 })
 export class InputComponent implements OnInit {
-  constructor() {}
-
   @Input() input: any;
   @Output() sendInput: EventEmitter<any> = new EventEmitter();
   @Output() updateInput: EventEmitter<any> = new EventEmitter();
+  constructor() {}
+
   ngOnInit(): void {}
 
   onAdd() {
