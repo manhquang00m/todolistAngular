@@ -5,23 +5,18 @@
     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
       <mat-form-field class="example-full-width w-100" appearance="fill">
         <mat-label>Name</mat-label>
-        <input
-          matInput
-          formControlName="name"
-          [(ngModel)]="inputName"
-          [value]="inputName"
-        />
+        <input matInput formControlName="name" />
       </mat-form-field>
-      <mat-form-field class="example-full-width w-100" appearance="fill">
+      <div *ngIf="name && name.invalid && name.touched">Name is required.</div>
+      <mat-form-field class="mt-4 example-full-width w-100" appearance="fill">
         <mat-label>Email</mat-label>
-        <input
-          matInput
-          formControlName="email"
-          [(ngModel)]="inputEmail"
-          value="inputEmail"
-        />
+        <input matInput formControlName="email" />
       </mat-form-field>
+      <div *ngIf="email && email.invalid && email.touched">
+        Email is required.
+      </div>
       <button
+        class="mt-3"
         mat-raised-button
         color="primary"
         type="submit"

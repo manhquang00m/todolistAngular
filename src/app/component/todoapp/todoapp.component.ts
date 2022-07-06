@@ -13,6 +13,7 @@ export class TodoappComponent implements OnInit {
   taskItem = TASK;
   input = '';
   idTemp = 0;
+  today: number = Date.now();
   displayedColumns: string[] = ['id', 'name', 'email', 'edit'];
   listStudent = this.StudentService.getStudent();
   constructor(

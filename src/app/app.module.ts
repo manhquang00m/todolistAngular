@@ -23,6 +23,8 @@ import { TaskitemComponent } from './component/taskitem/taskitem.component';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { StudentCreateComponent } from './component/student-create/student-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HighlightDirective } from './highlight.directive';
+import { UnhideDirective } from './unhide.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TaskitemComponent,
     DialogComponent,
     StudentCreateComponent,
+    HighlightDirective,
+    UnhideDirective,
   ],
   imports: [
     BrowserModule,

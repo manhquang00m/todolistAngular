@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { StudentServiceService } from 'src/app/services/student-service.service';
 
@@ -11,8 +11,8 @@ import { StudentServiceService } from 'src/app/services/student-service.service'
 export class StudentCreateComponent implements OnInit {
   @Input() students = '';
   formData: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   inputName = '';
@@ -30,9 +30,10 @@ export class StudentCreateComponent implements OnInit {
       if (paramMap.get('id') === 'creat') {
         console.log('Creat');
       } else {
-        // Lay du lieu da chon tu bang, truyen vao o input
-        this.inputName = this.serviceStudent.getStudent()[this.id].name;
-        this.inputEmail = this.serviceStudent.getStudent()[this.id].email;
+        this.formData.setValue({
+          name: this.serviceStudent.getStudent()[this.id].name,
+          email: this.serviceStudent.getStudent()[this.id].email,
+        });
       }
     });
   }
@@ -51,5 +52,12 @@ export class StudentCreateComponent implements OnInit {
       );
     }
     this.router.navigate(['/todolist']);
+  }
+
+  get name() {
+    return this.formData.get('name');
+  }
+  get email() {
+    return this.formData.get('email');
   }
 }
