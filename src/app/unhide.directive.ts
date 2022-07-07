@@ -14,6 +14,7 @@ export class UnhideDirective {
       this.viewContainer.clear();
     } else {
       this.viewContainer.createEmbeddedView(this.templateRef);
+      console.log(this.templateRef.elementRef);
     }
   }
 }

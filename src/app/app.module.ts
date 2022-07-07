@@ -25,8 +25,10 @@ import { StudentCreateComponent } from './component/student-create/student-creat
 import { ReactiveFormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { UnhideDirective } from './unhide.directive';
+import { StoreModule } from '@ngrx/store';
+import { TrimDirective } from './trim.directive';
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     TodoappComponent,
     InputComponent,
@@ -35,7 +37,8 @@ import { UnhideDirective } from './unhide.directive';
     StudentCreateComponent,
     HighlightDirective,
     UnhideDirective,
-  ],
+      TrimDirective
+   ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -54,6 +57,7 @@ import { UnhideDirective } from './unhide.directive';
       { path: 'todolist', component: TodoappComponent },
     ]),
     ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {
